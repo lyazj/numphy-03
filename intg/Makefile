@@ -9,4 +9,5 @@ OUT +=
 
 include ../Makefile.rule
 
-intg.o intg-test.o: solve.h
+intg.o intg-test.o intg-smp.o: intg.h
+intg-test intg-smp: intg.o
