@@ -8,3 +8,6 @@ RUN +=
 OUT +=
 
 include ../Makefile.rule
+
+solve.o solve-test.o: solve.h
+solve-test: solve.o
