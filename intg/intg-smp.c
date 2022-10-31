@@ -11,7 +11,7 @@ int main(void)
 {
   printf("intg_trap-11:   %lg\n", (double)intg_trap(f, 1, 100, 10));
   printf("intg_trap-101:  %lg\n", (double)intg_trap(f, 1, 100, 100));
-  printf("intg_trap-1001: %lg\n", (double)intg_trap(f, 1, 100, 1001));
+  printf("intg_trap-1001: %lg\n", (double)intg_trap(f, 1, 100, 1000));
   printf("intg_samp-11:   %lg\n", (double)intg_simp(f, 1, 100, 5));
   printf("intg_samp-101:  %lg\n", (double)intg_simp(f, 1, 100, 50));
   printf("intg_samp-1001: %lg\n", (double)intg_simp(f, 1, 100, 500));
