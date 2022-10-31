@@ -1,5 +1,8 @@
 #include "solve.h"
 #include <math.h>
+#include <stdio.h>
+
+FILE *solve_logging;
 
 number solve_bin(number f(number), number x1, number x2)
 {
@@ -18,6 +21,8 @@ number solve_bin(number f(number), number x1, number x2)
     return NAN;
   for(;;)
   {
+    if(solve_logging)
+      fprintf(solve_logging, "%s: %+-23.13la%+-21.13la\n", __func__, (double)x1, (double)x2);
     if(isnan((x = (x1 + x2) / 2)) || isnan((y = f(x))))
       return NAN;
     if(x == x1 || x == x2 || y == 0)
@@ -38,6 +43,8 @@ number solve_NR(number f(number), number fp(number), number x)
     return NAN;
   for(;;)
   {
+    if(solve_logging)
+      fprintf(solve_logging, "%s: %+-21.13la\n", __func__, (double)x);
     if(isnan((y = f(x))) || isnan((yp = fp(x))) || isnan((x_new = x - y / yp)))
       return NAN;
     if(x_new == x)
@@ -58,6 +65,8 @@ number solve_sec(number f(number), number x1, number x2)
     return NAN;
   for(;;)
   {
+    if(solve_logging)
+      fprintf(solve_logging, "%s: %+-23.13la%+-21.13la\n", __func__, (double)x1, (double)x2);
     if(isnan((x = x2 - y2 * ((x1 - x2) / (y1 - y2)))) || isnan((y = f(x))))
       return NAN;
     if(x == x1 || x == x2)

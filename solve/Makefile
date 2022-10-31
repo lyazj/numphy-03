@@ -4,10 +4,11 @@ include ../Makefile.conf
 
 # CFLAGS := $(subst -O3,-Og,$(CFLAGS))
 BIN := $(filter-out solve,$(BIN))
-RUN +=
-OUT +=
+RUN += func-plot solve-plot
+OUT += func-plot.pdf solve-plot.pdf
 
 include ../Makefile.rule
 
-solve.o solve-test.o: solve.h
-solve-test: solve.o
+solve.o solve-test.o solve-equ.o: solve.h
+solve-test solve-equ: solve.o
+solve-plot.run: solve-equ.out

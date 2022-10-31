@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(1.5, 2.5, 1000)
+y1 = x**2 - 4*x*np.sin(x) + (2*np.sin(x))**2
+y2 = x - 2*np.sin(x)
+plt.title('unary function plots')
+plt.xlabel('$x$')
+plt.ylabel('$y$')
+plt.plot(x, x - x, label='$y = 0$', color='black')
+plt.plot(x, y1, label='$y = x^2 - 4x\sin x + (2\sin x)^2$')
+plt.plot(x, y2, label='$y = x - 2\sin x$')
+plt.legend()
+plt.savefig(__file__ + '.pdf')
+plt.show()

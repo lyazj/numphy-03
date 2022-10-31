@@ -1,0 +1,25 @@
+#!/usr/bin/env python3
+
+import matplotlib.pyplot as plt
+import numpy as np
+from atof import atof
+
+f1 = lambda x: x - 2*np.sin(x)
+f2 = lambda x: x**2 - 4*x*np.sin(x) + (2*np.sin(x))**2
+x0 = atof('0x1.e53f1cbeaa9bcp+0')
+print(f'f1({x0:e}) = {f1(x0):e}')
+print(f'f2({x0:e}) = {f2(x0):e}')
+
+x = np.linspace(1.5, 2.5, 1000)
+y1 = x**2 - 4*x*np.sin(x) + (2*np.sin(x))**2
+y2 = x - 2*np.sin(x)
+plt.title('unary function plots with the zero point')
+plt.xlabel('$x$')
+plt.ylabel('$y$')
+plt.plot(x, x - x, label='$y = 0$', color='black')
+plt.plot(x, y1, label='$y = x^2 - 4x\sin x + (2\sin x)^2$')
+plt.plot(x, y2, label='$y = x - 2\sin x$')
+plt.plot(x0, 0, 'o', label='zero point', color='red')
+plt.legend()
+plt.savefig(__file__ + '.pdf')
+plt.show()
