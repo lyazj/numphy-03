@@ -3,4 +3,5 @@
 !Makefile
 !*.h
 !*.c
+!atof.py
 !*-plot
