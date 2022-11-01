@@ -12,23 +12,21 @@ static number f(number x)
 int main(void)
 {
   number r;
-  r = intg_trap(f, 1, 100, 10);
-  printf("intg_trap-11:  \t%8lg\t%lg\n", (double)r, (double)(r - RESULT));
-  r = intg_trap(f, 1, 100, 100);
-  printf("intg_trap-101: \t%8lg\t%lg\n", (double)r, (double)(r - RESULT));
-  r = intg_trap(f, 1, 100, 1000);
-  printf("intg_trap-1001:\t%8lg\t%lg\n", (double)r, (double)(r - RESULT));
-  r = intg_simp(f, 1, 100, 5);
-  printf("intg_samp-11:  \t%8lg\t%lg\n", (double)r, (double)(r - RESULT));
-  r = intg_simp(f, 1, 100, 50);
-  printf("intg_samp-101: \t%8lg\t%lg\n", (double)r, (double)(r - RESULT));
-  r = intg_simp(f, 1, 100, 500);
-  printf("intg_samp-1001:\t%8lg\t%lg\n", (double)r, (double)(r - RESULT));
-  r = intg_cheb(f, 1, 100, 11);
-  printf("intg_cheb-11:  \t%8lg\t%lg\n", (double)r, (double)(r - RESULT));
-  r = intg_cheb(f, 1, 100, 101);
-  printf("intg_cheb-101: \t%8lg\t%lg\n", (double)r, (double)(r - RESULT));
-  r = intg_cheb(f, 1, 100, 1001);
-  printf("intg_cheb-1001:\t%8lg\t%lg\n", (double)r, (double)(r - RESULT));
+  r = intg_trap(f, 1, 100, 9);
+  printf("intg_trap-10:   %8.6lf  %.1e\n", (double)r, (double)(r - RESULT));
+  r = intg_trap(f, 1, 100, 99);
+  printf("intg_trap-100:  %8.6lf  %.1e\n", (double)r, (double)(r - RESULT));
+  r = intg_trap(f, 1, 100, 999);
+  printf("intg_trap-1000: %8.6lf  %.1e\n", (double)r, (double)(r - RESULT));
+  r = intg_simp(f, 1, 100, 9);
+  printf("intg_samp-10:   %8.6lf  %.1e\n", (double)r, (double)(r - RESULT));
+  r = intg_simp(f, 1, 100, 99);
+  printf("intg_samp-100:  %8.6lf  %.1e\n", (double)r, (double)(r - RESULT));
+  r = intg_simp(f, 1, 100, 999);
+  printf("intg_samp-1000: %8.6lf  %.1e\n", (double)r, (double)(r - RESULT));
+  r = intg_cheb(f, 1, 100, 10);
+  printf("intg_cheb-10:   %8.6lf  %.1e\n", (double)r, (double)(r - RESULT));
+  r = intg_cheb(f, 1, 100, 100);
+  printf("intg_cheb-100:  %8.6lf  %.1e\n", (double)r, (double)(r - RESULT));
   return 0;
 }
